@@ -3,7 +3,7 @@ import convert_to_h5
 
 raw_data_list = []
 nii_root_path = "data/original/ozerki/"
-for i in range(1, 9):
+for i in range(1, 10):
     raw_data = os.path.join(nii_root_path, f"G{i}.nii.gz")
     raw_data_list.append((raw_data,raw_data,raw_data,raw_data))
 
