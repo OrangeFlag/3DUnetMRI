@@ -4,7 +4,7 @@ import numpy as np
 import tables
 import train
 
-from normalize import normalize_data_storage, reslice_image_set
+from unet3d.normalize import normalize_data_storage, reslice_image_set
 
 
 ## make from unet3d.data
