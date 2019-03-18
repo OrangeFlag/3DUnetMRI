@@ -34,12 +34,12 @@ def add_data_to_storage(data_storage, affine_storage, subject_data, affine, n_ch
     affine_storage.append(np.asarray(affine)[np.newaxis])
 
 
-def write_data_to_file(training_data_files, out_file, image_shape=train.config["input_shape"], subject_ids=None,
+def write_data_to_file(training_data_files, out_file, image_shape=None, subject_ids=None,
                        normalize=True, crop=True):
     """
     Takes in a set of training images and writes those images to an hdf5 file.
     :param training_data_files: List of tuples containing the training data files. The modalities should be listed in
-    the same order in each tuple. The last item in each tuple must be the labeled image.
+    the same order in each tuple.
     Example: [('sub1-T1.nii.gz', 'sub1-T2.nii.gz'),
               ('sub2-T1.nii.gz', 'sub2-T2.nii.gz')]
     :param out_file: Where the hdf5 file will be written to.
