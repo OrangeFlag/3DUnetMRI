@@ -27,7 +27,7 @@ def run_validation_case(data_index, output_dir, model, data_file, training_modal
     test_data = np.asarray([data_file.root.data[data_index]])
     for i, modality in enumerate(training_modalities):
         image = nib.Nifti1Image(test_data[0, i], affine)
-        image.to_filename(os.path.join(output_dir, "data_{0}.nii.gz".format(modality)))
+        image.to_filename(os.path.join(output_dir, f"data_{data_index}_{modality}.nii.gz"))
 
     patch_shape = tuple([int(dim) for dim in model.input.shape[-3:]])
     if patch_shape == test_data.shape[-3:]:
