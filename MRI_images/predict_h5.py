@@ -38,7 +38,7 @@ def run_validation_case(data_index, output_dir, model, data_file, training_modal
                                            labels=labels)
     if isinstance(prediction_image, list):
         for i, image in enumerate(prediction_image):
-            image.to_filename(os.path.join(output_dir, "prediction_{0}.nii.gz".format(i + 1)))
+            image.to_filename(os.path.join(output_dir, f"prediction_{data_index}_{i + 1}.nii.gz"))
     else:
         prediction_image.to_filename(os.path.join(output_dir, "prediction.nii.gz"))
     return prediction
