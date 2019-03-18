@@ -2,6 +2,7 @@ import os
 
 import numpy as np
 import tables
+import train
 
 from normalize import normalize_data_storage, reslice_image_set
 
@@ -33,7 +34,7 @@ def add_data_to_storage(data_storage, affine_storage, subject_data, affine, n_ch
     affine_storage.append(np.asarray(affine)[np.newaxis])
 
 
-def write_data_to_file(training_data_files, out_file, image_shape, subject_ids=None,
+def write_data_to_file(training_data_files, out_file, image_shape=train.config["input_shape"], subject_ids=None,
                        normalize=True, crop=True):
     """
     Takes in a set of training images and writes those images to an hdf5 file.
