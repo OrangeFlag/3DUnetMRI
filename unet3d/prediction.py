@@ -131,6 +131,7 @@ def run_validation_case(data_index, output_dir, model, data_file, training_modal
         prediction = predict(model, test_data, permute=permute)
     else:
         prediction = patch_wise_prediction(model=model, data=test_data, overlap=overlap, permute=permute)[np.newaxis]
+    print(prediction)
     prediction_image = prediction_to_image(prediction, affine, label_map=output_label_map, threshold=threshold,
                                            labels=labels)
     if isinstance(prediction_image, list):

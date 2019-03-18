@@ -2,7 +2,7 @@ import os
 
 import numpy as np
 import tables
-import train
+
 
 from unet3d.normalize import normalize_data_storage, reslice_image_set
 
