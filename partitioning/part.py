@@ -1,5 +1,6 @@
 import os
 import nibabel as nib
+from unet3d.utils.utils import resize
 
 
 class Part:
@@ -13,10 +14,14 @@ class Part:
         self.template = nib.load(os.path.abspath(template.template_file_name))
         self.get_name_by_color = template.get_name_by_color
 
-    def get_name_of_part(self, coord: (int, int, int), new_coordinate_system=lambda coord: coord):
+    def get_name_of_coord(self, coord: (int, int, int), new_coordinate_system=lambda coord: coord, resizing_image=None):
+        template = self.template
+        if resizing_image != None:
+            template = resize(template, resizing_image.shape, interpolation="linear")
         new_coord = new_coordinate_system(coord)
         print(self.template.dataobj[new_coord[0], new_coord[1], new_coord[2]])
-        return self.get_name_by_color(self.template.dataobj[new_coord[0], new_coord[1], new_coord[2]])
+        return self.get_name_by_color(template.dataobj[new_coord[0], new_coord[1], new_coord[2]])
+
 
     def LBPA40_get_name_by_color(color):
         color = int(color)

@@ -7,4 +7,4 @@ data_file = tables.open_file('data/h5/ozerki.h5', "r")
 
 for i in range(9):
     with open(f"data/out/result{i}", "w") as f:
-        print(predict_h5.run_validation_case(i, 'data/out', model, data_file, ["t1", "t1ce", "flair", "t2"]), file=f)
+        print(predict_h5.run_validation_case(i, 'data/out', model, data_file, ["t1"]), file=f)
